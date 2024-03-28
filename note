@@ -1,0 +1,16 @@
+<html><head></head><body>
+  <u>powershell admin: Active Win OFFice </u> <br><br>
+irm https://massgrave.dev/get | iex <br><br><br>
+
+ <u> 10 Home To pro: cmd admin </u><br><br>
+  sc config LicenseManager start= auto & net start LicenseManager <br>
+sc config wuauserv start= auto & net start wuauserv <br>
+changepk.exe /productkey VK7JG-NPHTM-C97JM-9MPGT-3V66T <br>
+exit <br>
+
+  <u>link máy in các nhà: </u> <br><br>
+  https://docs.google.com/spreadsheets/d/1O2z3-PNzMX7PSPJxbuFJiBeZ8iRNa1hY/edit#gid=447973239
+</body></html>
+
+<u> Chỉnh POWER Perfomance</u><br>
+https://drive.google.com/drive/folders/1n8mBALWYwZ73xmG2X1yxMAHJw_5Ab7fq
