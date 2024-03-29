@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<style type="text/css">
+    #wrap {
+       width:100%;
+       margin:0 auto;
+    }
+    #left_col {
+       float:left;
+       width:50%;
+    }
+    #right_col {
+       float:right;
+       width:50%;
+    }
+</style>
+
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+  <button ng-click="login()">login</button>
+  <p>status: {{status}}</p>
+  <div>
+    <button ng-click="listAlbums()" ng-disabled="!isSignedIn">list albums</button>
+    <button ng-click="listAlbums(pageToken)" ng-disabled="!isSignedIn || !pageToken">&gt;</button>
+  </div>
+  <div id="wrap">
+    <div id="left_col">
+        <table>
+            <tr role="button" ng-repeat="album in albums" ng-click="listPhotos(album.id)">
+                <td>{{ album.title}}</td>
+                <td>{{ album.mediaItemsCount }}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="left_col">
+        <table>
+            <tr ng-repeat="photo in photos">
+                <td><img src="{{getUrl(photo)}}" alt=""></td>
+            </tr>
+        </table>
+    </div>  
+  </div>
+</div>
+
+</body>
+<script>
+    var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+    gapi.load("client:auth2", function() {
+        gapi.auth2.init({client_id: '994587139140-pc64e02k8lnvg8djd4helqajancr74n5.apps.googleusercontent.com'});
+        console.log('signed in:' + gapi.auth2.getAuthInstance().isSignedIn.get())
+    });
+    $scope.status = "not logged in"
+    $scope.isSignedIn = false;
+    $scope.albums = [];
+    $scope.photos = [];
+
+    function authenticate() {
+        return gapi.auth2.getAuthInstance()
+                .signIn({scope: "https://www.googleapis.com/auth/photoslibrary https://www.googleapis.com/auth/photoslibrary.readonly"})
+                .then(function() { 
+                    console.log("Sign-in successful");
+                    $scope.isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get(); 
+                    console.log('signed in:' + gapi.auth2.getAuthInstance().isSignedIn.get())
+                    },
+                    function(err) { console.error("Error signing in", err); });
+    }
+    
+    function loadClient() {
+        return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/photoslibrary/v1/rest")
+                // .then(function() { console.log("GAPI client loaded for API"); },
+                //     function(err) { console.error("Error loading GAPI client for API", err); });
+    }
+
+    $scope.login = function() {
+        authenticate().then(loadClient()).then(
+            function() {
+                $scope.$apply(function() {
+                    $scope.status = "logged!"
+                });
+                console.log("GAPI client loaded for API");
+            },
+            function(err) {
+                $scope.status = "problems";
+                console.error("Error loading GAPI client for API", err); 
+            }
+        )
+        
+    }
+
+    $scope.listAlbums = function(pageToken) {
+        gapi.client.photoslibrary.albums.list({
+            "excludeNonAppCreatedData": "false",
+            "pageSize": "50",
+            "pageToken": pageToken	
+
+        })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+                $scope.$apply(function() {
+                    $scope.albums = response.result.albums;
+                    $scope.pageToken = response.result.nextPageToken;
+                } );
+              },
+              function(err) { console.error("Execute error", err); });
+    }  
+
+    $scope.listPhotos = function(albumId)  {
+        gapi.client.photoslibrary.mediaItems.search({
+            "albumId": albumId
+        })
+        .then(function(response) {
+                $scope.$apply(function() {
+                    $scope.photos = response.result.mediaItems;
+                } );
+              },
+              function(err) { console.error("Execute error", err); });
+    }      
+
+    $scope.getUrl = function(photo) {
+        return photo.baseUrl+'=w300-h150';
+    }
+});
+
+</script>
+</html>
