@@ -16,3 +16,17 @@ exit <br>
 <a href="https://drive.google.com/drive/folders/1n8mBALWYwZ73xmG2X1yxMAHJw_5Ab7fq">____</a>
 <br><br>
 <a href="https://github.com/securesean/DecryptAutoLogon/blob/main/DecryptAutoLogon/bin/Release/DecryptAutoLogon.exe">Autologinadmin</a>
+<br><br>
+<u>Vào Regedit Chặn Mở App </u> <br>
+Bước 1: <br>
+rem open regedit.exe at HKEY_CURRENT_USER\Software\Microsoft <br>
+set "showkey=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" <br>
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit" /v "LastKey" /d "%showkey%" /f <br>
+start /b regedit <br>
+Bước 2: <br>
+<img src="https://lh3.googleusercontent.com/pw/AP1GczNky1HwiTtduNhIH5DWPjPBXPRij15OLRqdLdPB6kh-rCx4T6s-mITs_8vmnjvND_4AMtnvftnNa-MbdOuVVbvmIZyy86vQlKa3nvxh45aQXSBW0dxtGqFJqeTg0oS_R6jlPn5KJUykyj1d2lYkdESlBhme8amQl6tBDKn0NJBJJBLVmt4Ccrg8iQy9kFj1776Bo73DdeAJudxbfMHHnsbmE4oAp55t1aAiroZ0WhpSRd3JNpYA8ikW5L6hx2Y-Do3rRJzTejP0oRoESgad-rM_4DGT4C0pQiX6MrnYl2vaR39u6VthLpMWGVn8s16xHA4-InT8E3r0IL2uyaKroHwloaOFLOfEuXrkdDTUDruUZHYWpr14ySog2WiKon4wxr3JH2PJbk-ZXwfScZEuGNFTfke1RFv5gf6u5q64oFZE2ZzA0fLaPuu3tcAMjd4PWs2GTeGtGUmgg5IbZY-P53zb3HAFB5aILa1-La_UMu7grGD1qRmP4VOwssX7DtOKoyu5w_40c3OtVBr0VizjiBoT4vrlGLxiYHOU5GPSR9zXh_rRtTi8UbV03vDpgiVDKOCJxbFmBEQShKjSA9P9ugkh4u0a6mYYvz-7Ygql-VMbySqnSaVxBXDPZwQ2QM53NbmSck-ZMDtXCVCet7434JCwgFl_GJC9sFsPVihXUhchsSMcOXz7oOZ1Y1HHiJ5h1xKiIEtIQKNp1iNq1Vo8B5EapcDMK5u9k3RFLxy9CnYMMrlh9XUpoz5tuoQR6qpzRwhoNfWmNDDe15TcuMSRWOw-07mKiFuCUjfGaXjZm2nW5rCdkRyH5kxxSsHKJGTf6gkOMWdnyDWjKj7iahppqMoq6vV4LGsG1izQ4j1HBHf0oS-0QKTmjlC-KtEoqOZKCj23udKO2cl-6THp9Auu_U8DErIrp9iTUEBlSJgnWf-m_zIztKYENbgjeuMUuxHXr9X2zgY6fKM_efFO7USi4q_j_Luvrv8nL6Od=w918-h373-s-no-gm?authuser=0" alt="New DisallowRun"> <br>
+
+Tạo file DisallowRun như Hình tab bên phải (gán value = 0 sẽ tắt chặn app, value = 1 để bật tính năng)<br>
+Tạo Folder DisallowRun Tab bên trái <br>
+Tạo file như hình và đặt value là tên app để gán không cho mở App <br>
+<img src="https://lh3.googleusercontent.com/pw/AP1GczNFWRxv9DEWZMT9yBv_Bc2SLqSQetYsVF45wPBG1uMT9qBvZ5VYyfBto5OThAHisZa50XGxXKBwBADJNL4vruhKeLYyUsTi-X_Eeu9x1aZ92dnCCgMxEnhIz-jUUis1e9wvQWT88Ye3GVMgsuDU0kC5OQ=w821-h402-s-no-gm?authuser=0" alt="Name App"><br>
