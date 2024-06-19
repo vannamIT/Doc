@@ -38,5 +38,7 @@ https://sasinvn-my.sharepoint.com/:f:/g/personal/nam_tran_sasin_vn/EgtgabtBUqtGo
 <br>Bước 2: wmic useraccount get name,sid (lấy SID tài khoản cần cấp quyền)<br>
 <br>Bước 3: cd C:\Users\Admin
 sc sdset SERVICE-NAME "D:(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;RPWPCR;;;PASTE_SID)"<br>
-Sau khi báo SUCCESS!!!
+Sau khi báo SUCCESS thì đã cấp quyên xong <br>
+net stop [NAME-SERVICES] : dừng services
+net start  [NAME-SERVICES] : chạy services <br>
 
