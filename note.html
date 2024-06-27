@@ -41,4 +41,9 @@ sc sdset SERVICE-NAME "D:(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;
 Sau khi báo SUCCESS thì đã cấp quyên xong <br>
 net stop [NAME-SERVICES] : dừng services
 net start  [NAME-SERVICES] : chạy services <br>
+<br><br>    CÁCH SETUP TẮT MÁY NHANH CHÓNG <br><br>
+Bước 1: Mở Register : Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control <br>
+-"VerboseStatus" value 1 DWORD 32bit <br>
+-"WaitToKillServiceTimeout" set 2000
+-"HungApp Timeout" set 2000 <br>
 
