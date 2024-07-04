@@ -31,6 +31,11 @@ Tạo Folder DisallowRun Tab bên trái <br>
 Tạo file như hình và đặt value là tên app để gán không cho mở App <br>
 <img src="https://lh3.googleusercontent.com/pw/AP1GczNFWRxv9DEWZMT9yBv_Bc2SLqSQetYsVF45wPBG1uMT9qBvZ5VYyfBto5OThAHisZa50XGxXKBwBADJNL4vruhKeLYyUsTi-X_Eeu9x1aZ92dnCCgMxEnhIz-jUUis1e9wvQWT88Ye3GVMgsuDU0kC5OQ=w821-h402-s-no-gm?authuser=0" alt="Name App"><br>
 <br>
+<br>
+REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer /v DisallowRun /t REG_DWORD /reg:32 /d 1
+<br>
+REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun /v 2 /t REG_SZ /d Zalo.exe
+<br>
 Link Share IT : <br>
 https://sasinvn-my.sharepoint.com/:f:/g/personal/nam_tran_sasin_vn/EgtgabtBUqtGoh-XXw4Xdj0BR8hhr6sfyR3Uok5T6LaFPw <br><br>
 <u>Cmd active Quyền Run-STOP service trên Tài khoản User:</u><br>
