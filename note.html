@@ -52,6 +52,26 @@ function myFunction() {
 }
 </script>
 <br>
+<br>
+<textarea rows="2" cols="120" id="myInput3"> 
+REG ADD HKLM\SYSTEM\CurrentControlSet\Control /v VerboseStatus /t REG_DWORD /reg:32 /d 1
+</textarea>
+
+<button onclick="myFunction3()">Copy CODE</button>
+<script>
+function myFunction3() {
+  // Get the text field
+  var copyText = document.getElementById("myInput3");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+<br>
 Link Share IT : <br>
 https://sasinvn-my.sharepoint.com/:f:/g/personal/nam_tran_sasin_vn/EgtgabtBUqtGoh-XXw4Xdj0BR8hhr6sfyR3Uok5T6LaFPw <br><br>
 <u>Cmd active Quyền Run-STOP service trên Tài khoản User:</u><br>
