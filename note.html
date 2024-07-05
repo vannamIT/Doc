@@ -46,6 +46,13 @@ sc sdset SERVICE-NAME "D:(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;
 Sau khi báo SUCCESS thì đã cấp quyên xong <br>
 net stop [NAME-SERVICES] : dừng services
 net start  [NAME-SERVICES] : chạy services <br>
+<br>
+SERVICE DCORP:
+<br>
+sc sdset D__RK7_FARCARD_FARCARDS "D:(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;RPWPCR;;;PASTE_SID)"<br>
+sc sdset SkyMonitorAgent "D:(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;RPWPCR;;;PASTE_SID)"<br>
+Pause
+<br>
 <br><br>    CÁCH SETUP TẮT MÁY NHANH CHÓNG <br><br>
 Bước 1: Mở Register : Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control <br>
 -"VerboseStatus" value 1 DWORD 32bit <br>
