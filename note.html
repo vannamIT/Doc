@@ -1,23 +1,18 @@
 <html><head></head><body>
   <u>powershell admin: Active Win OFFice </u> <br><br>
-  <textarea rows="4" cols="120" id="myInputactivewin">irm https://get.activated.win |iexe
+  irm https://massgrave.dev/get | iex  <br>
+  <textarea rows="1" cols="50" id="myInputactivewin">irm https://get.activated.win |iexe
 </textarea>
-
-<button onclick="myFunctionactivewin()">Copy CODE</button>
+  <button onclick="myFunctionactivewin()">Copy CODE</button>
 <script>
 function myFunctionactivewin() {
-  // Get the text field
   var copyText = document.getElementById("myInputactivewin");
-
-  // Select the text field
   copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-  // Copy the text inside the text field
+  copyText.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyText.value);
 }
- <br>
-irm https://massgrave.dev/get | iex <br><br><br>
+
+<br><br><br>
 
  <u> 10 Home To pro: cmd admin </u><br><br>
   sc config LicenseManager start= auto & net start LicenseManager <br>
