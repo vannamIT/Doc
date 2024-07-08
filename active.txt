@@ -1,4 +1,4 @@
-<html><head><meta name="color-scheme" content="light dark"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;"># The following get.ps1 code is hosted on get.activated.win for massgrave.dev. For more info, please visit massgrave.dev.
+# The following get.ps1 code is hosted on get.activated.win for massgrave.dev. For more info, please visit massgrave.dev.
 
 $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients for current session
@@ -31,4 +31,3 @@ Start-Process $FilePath $ScriptArgs -Wait
 
 $FilePaths = @("$env:TEMP\MAS*.cmd", "$env:SystemRoot\Temp\MAS*.cmd")
 foreach ($FilePath in $FilePaths) { Get-Item $FilePath | Remove-Item }
-</pre></body></html>
